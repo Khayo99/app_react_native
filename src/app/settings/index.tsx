@@ -1,16 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import {
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  ScrollView,
-  ActivityIndicator,
-} from 'react-native';
-import { router } from 'expo-router';
+import { View, Text, TextInput, ScrollView, ActivityIndicator } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ToggleSwitch } from '../../components/ToggleSwitch';
 import { fetchFeatureFlags, FeatureFlags } from '../../services/featureFlags';
+import { Header } from '../../components/Header';
+import { Button } from '../../components/Button';
 
 export default function Settings() {
   const [notifications, setNotifications] = useState(true);
@@ -55,12 +49,7 @@ export default function Settings() {
 
   return (
     <View className="flex-1 bg-white">
-      <View className="mt-2 flex-row items-center border-b border-gray-200 bg-white px-4 pb-4">
-        <TouchableOpacity onPress={() => router.back()} className="mr-4">
-          <Text className="text-2xl">←</Text>
-        </TouchableOpacity>
-        <Text className="text-xl font-semibold text-gray-800">Configurações</Text>
-      </View>
+      <Header title="Configurações" />
 
       <ScrollView className="flex-1 px-4">
         <View className="mt-4">
@@ -88,12 +77,7 @@ export default function Settings() {
           </View>
         )}
 
-        <TouchableOpacity
-          onPress={handleSave}
-          className="mb-8 mt-8 rounded-lg bg-blue-600 py-4"
-          activeOpacity={0.8}>
-          <Text className="text-center text-base font-semibold text-white">Salvar</Text>
-        </TouchableOpacity>
+        <Button onPress={handleSave} className="mb-8 mt-8" label="Salvar" />
       </ScrollView>
     </View>
   );
