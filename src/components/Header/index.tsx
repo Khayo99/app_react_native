@@ -8,7 +8,7 @@ interface HeaderProps {
 export function Header({ title }: HeaderProps) {
   return (
     <View className="mt-2 flex-row items-center border-b border-gray-200 bg-white px-4 pb-4">
-      <TouchableOpacity onPress={() => router.back()} className="mr-4">
+      <TouchableOpacity onPress={() => router.back()} className="mr-4 rounded-full px-2 py-1">
         <Text className="text-2xl">←</Text>
       </TouchableOpacity>
 
